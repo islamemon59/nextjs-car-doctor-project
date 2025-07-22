@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa";
 const ServicesCard = ({ item }) => {
   return (
     <div className="col-span-4 p-5 border border-gray-300 rounded-lg">
@@ -11,11 +12,16 @@ const ServicesCard = ({ item }) => {
           className="h-full w-full rounded-lg"
         />
       </div>
-      <div className="mt-5">
-        <p className="text-2xl font-bold text-[#444444]">{item.title}</p>
-        <p className="text-xl font-semibold text-[#FF3811]">
-          price : ${item.price}
-        </p>
+      <div className="mt-5 flex justify-between items-center">
+        <div>
+          <p className="text-2xl font-bold text-[#444444]">{item.title}</p>
+          <p className="text-xl font-semibold text-[#FF3811]">
+            price : ${item.price}
+          </p>
+        </div>
+        <button>
+          <FaArrowRight className="text-[#FF3811]" />
+        </button>
       </div>
     </div>
   );
