@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -40,9 +40,6 @@ const LoginForm = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
-    console.log("Google login clicked");
-  };
   return (
     <>
       <form onSubmit={handleLogin} className="space-y-4">
@@ -75,14 +72,7 @@ const LoginForm = () => {
         </button>
       </form>
       <div className="divider">OR</div>
-      <button
-        type="button"
-        onClick={handleGoogleLogin}
-        className="btn btn-outline w-full flex items-center gap-2"
-      >
-        <FcGoogle className="text-xl" />
-        Continue with Google
-      </button>
+      <SocialLogin/>
     </>
   );
 };

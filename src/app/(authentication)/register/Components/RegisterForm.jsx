@@ -5,6 +5,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
+import SocialLogin from "../../login/Components/SocialLogin/SocialLogin";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -34,10 +35,6 @@ const RegisterForm = () => {
       toast.error("Registration Failed");
       form.reset();
     }
-  };
-
-  const handleGoogleRegister = () => {
-    console.log("Google signup clicked");
   };
   return (
     <>
@@ -83,14 +80,7 @@ const RegisterForm = () => {
         </button>
       </form>
       <div className="divider">OR</div>
-      <button
-        type="button"
-        onClick={handleGoogleRegister}
-        className="btn btn-outline w-full flex items-center gap-2"
-      >
-        <FcGoogle className="text-xl" />
-        Continue with Google
-      </button>
+      <SocialLogin/>
     </>
   );
 };

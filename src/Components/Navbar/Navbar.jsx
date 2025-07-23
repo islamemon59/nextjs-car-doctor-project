@@ -66,7 +66,19 @@ const Navbar = () => {
       </div>
       <div className="navbar-end  gap-4">
         {status == "authenticated" ? (
-          <button onClick={() => signOut()} className="btn btn-outline rounded">Logout</button>
+          <div className="flex justify-center items-center gap-3">
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <Image src={data?.user?.image} width={10} height={10} alt="user-logo" />
+              </div>
+            </div>
+            <button
+              onClick={() => signOut()}
+              className="btn btn-outline rounded"
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <>
             <Link href={"/login"} className="btn btn-outline rounded">
