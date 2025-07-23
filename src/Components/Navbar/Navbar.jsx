@@ -55,8 +55,9 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold text-lg">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn btn-outline rounded">Button</a>
+      <div className="navbar-end  gap-4">
+        <Link href={"/login"} className="btn btn-outline rounded">Login</Link>
+        <Link href={"/register"} className="btn btn-outline rounded">Register</Link>
       </div>
     </div>
   );

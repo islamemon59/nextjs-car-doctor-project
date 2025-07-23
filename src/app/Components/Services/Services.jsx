@@ -19,6 +19,7 @@ const Services = async () => {
               width={314}
               height={208}
               className="h-full w-full rounded-lg"
+              alt="image"
             />
           </div>
           <div className="mt-5 flex justify-between items-center">

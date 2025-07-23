@@ -3,6 +3,7 @@ const uri = process.env.MONGODB_URI;
 
 export const collectionObj = {
     carServiceCollection : "carItems",
+    userCollection: "testUser"
 }
 
 function dbConnect(collectionName) {
