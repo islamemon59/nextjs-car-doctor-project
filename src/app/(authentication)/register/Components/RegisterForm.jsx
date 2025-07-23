@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 
 const RegisterForm = () => {
-  const router = useRouter()
+  const router = useRouter();
   const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,19 +14,19 @@ const RegisterForm = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const result = await registerUser({ name, email, password });
-    console.log(result);
-
-    if (result.insertedId) {
+    try {
+      const result = await registerUser({ name, email, password });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    } finally {
       Swal.fire({
         title: "Register Successful",
         icon: "success",
         draggable: true,
       });
       form.reset();
-      router.push("/")
-    } else {
-      alert("You already Register")
+      router.push("/");
     }
   };
 
