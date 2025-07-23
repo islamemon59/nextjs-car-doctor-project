@@ -2,6 +2,7 @@
 import { registerUser } from "@/app/action/auth/registerUser";
 import { useRouter } from "next/navigation";
 import React from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 
@@ -13,20 +14,25 @@ const RegisterForm = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    toast("Please wait");
 
     try {
       const result = await registerUser({ name, email, password });
-      console.log(result);
+      if (result.insertedId) {
+        Swal.fire({
+          title: "Register Successful",
+          icon: "success",
+          draggable: true,
+        });
+        form.reset();
+        router.push("/");
+      } else {
+        toast.error("Registration Failed");
+        form.reset();
+      }
     } catch (error) {
-      console.log(error);
-    } finally {
-      Swal.fire({
-        title: "Register Successful",
-        icon: "success",
-        draggable: true,
-      });
+      toast.error("Registration Failed");
       form.reset();
-      router.push("/");
     }
   };
 
