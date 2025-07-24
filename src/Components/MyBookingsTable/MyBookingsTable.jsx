@@ -1,6 +1,7 @@
+import DeleteBookingData from "@/app/bookings/Components/DeleteBookingData/DeleteBookingData";
 import Image from "next/image";
 import React from "react";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 const MyBookingsTable = ({ bookings }) => {
   return (
@@ -34,9 +35,8 @@ const MyBookingsTable = ({ bookings }) => {
                 <button className="btn btn-sm btn-outline btn-primary">
                   <FaEdit />
                 </button>
-                <button className="btn btn-sm btn-outline btn-error">
-                  <FaTrashAlt />
-                </button>
+
+                <DeleteBookingData id={booking?._id}/>
               </td>
             </tr>
           ))}

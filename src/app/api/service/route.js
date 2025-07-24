@@ -5,9 +5,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
     const session = await getServerSession(authOptions);
-    console.log("console",session);
     if(session){
-      console.log("session",session);
         const email = session?.user?.email
         const bookingCollection = dbConnect(collectionObj.bookingCollection);
         const result = await bookingCollection.find({email}).toArray()
