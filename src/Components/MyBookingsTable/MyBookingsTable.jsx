@@ -1,5 +1,6 @@
 import DeleteBookingData from "@/app/bookings/Components/DeleteBookingData/DeleteBookingData";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 
@@ -32,9 +33,9 @@ const MyBookingsTable = ({ bookings }) => {
               <td>{booking.date}</td>
               <td>${booking.service_Price}</td>
               <td className="flex gap-2 justify-center">
-                <button className="btn btn-sm btn-outline btn-primary">
+                <Link href={`/bookings/${booking._id}`} className="btn btn-sm btn-outline btn-primary">
                   <FaEdit />
-                </button>
+                </Link>
 
                 <DeleteBookingData id={booking?._id}/>
               </td>
