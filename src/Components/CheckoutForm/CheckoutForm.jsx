@@ -31,7 +31,7 @@ const CheckoutForm = ({ userData }) => {
       service_Price: userData?.price,
     };
 
-    const res = await fetch("http://localhost:3000/api/service", {
+    const res = await fetch("https://nextjs-car-doctor-project.vercel.app/api/service", {
       method: "POST",
       body: JSON.stringify(bookingData),
     });

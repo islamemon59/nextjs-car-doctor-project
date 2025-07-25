@@ -4,7 +4,7 @@ import React from "react";
 
 const ServiceDetails = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:3000/api/service/${id}`);
+  const res = await fetch(`https://nextjs-car-doctor-project.vercel.app/api/service/${id}`);
   const data = await res.json();
   console.log(data);
 
